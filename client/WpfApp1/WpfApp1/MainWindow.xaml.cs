@@ -48,6 +48,13 @@ namespace WpfApp1
             b_Mes = Encoding.UTF8.GetBytes(Mes);
             client.Send(b_Mes);
         }
+        private void ResevMessSocket()
+        {
+            byte[] receiveBuffer = new byte[4096];
+            int bytesRead = client.Receive(receiveBuffer);
+            string receivedMessage = Encoding.UTF8.GetString(receiveBuffer, 0, bytesRead);
+            LabelMessCrypte.Content= receivedMessage;
+        }
 
         private void txtInputString_KeyDown(object sender, KeyEventArgs e)
         {
@@ -71,9 +78,10 @@ namespace WpfApp1
                     {
                         ChaineAScrypte = "S|" + ChaineAScrypte;
                     }
-                    ConnectSocket("172.18.1.62",8888);
+                    ConnectSocket("172.18.1.62",6666);
                     SendSocket(ChaineAScrypte);
 
+                    
                 }
                 else{
                 

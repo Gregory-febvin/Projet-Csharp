@@ -30,6 +30,6 @@
 
         <!-- Zone d'affichage -->
         <Label Grid.Row="3" Content="Chaîne chiffrée:" Width="auto" Height="auto"/>
-        <Label Grid.Row="4" Width="auto" Height="20" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1"/>
+        <Label x:Name="LabelMessCrypte" Grid.Row="4"  Width="auto" Height="20" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1"/>
     </Grid>
 </Window>
