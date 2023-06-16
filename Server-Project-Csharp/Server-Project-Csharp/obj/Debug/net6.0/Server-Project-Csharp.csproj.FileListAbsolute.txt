@@ -1,0 +1,15 @@
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\bin\Debug\net6.0\Server-Project-Csharp.exe
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\bin\Debug\net6.0\Server-Project-Csharp.deps.json
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\bin\Debug\net6.0\Server-Project-Csharp.runtimeconfig.json
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\bin\Debug\net6.0\Server-Project-Csharp.dll
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\bin\Debug\net6.0\Server-Project-Csharp.pdb
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.csproj.AssemblyReference.cache
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.AssemblyInfoInputs.cache
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.AssemblyInfo.cs
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.csproj.CoreCompileInputs.cache
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.dll
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\refint\Server-Project-Csharp.dll
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.pdb
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\Server-Project-Csharp.genruntimeconfig.cache
+C:\Users\gregf\source\repos\Server-Project-Csharp\Server-Project-Csharp\obj\Debug\net6.0\ref\Server-Project-Csharp.dll
