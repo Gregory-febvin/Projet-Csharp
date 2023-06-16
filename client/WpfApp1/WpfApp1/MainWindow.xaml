@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+           Title="PromeoCrypto" Height="220" Width="400" Background="LightGray">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
+        <!-- Zone d'édition -->
+        <Label Grid.Row="0" Content="Saisir la chaîne à chiffrer:"/>
+        <TextBox Grid.Row="1" x:Name="txtInput"  Margin="5"/>
+
+        <!-- GroupBox avec les radio-boutons -->
+        <GroupBox Grid.Row="2" Header="Méthode de chiffrement" Margin="5">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
+                <RadioButton x:Name="rbCesar" Content="César" IsChecked="True" Margin="0,0,20,0" />
+                <RadioButton x:Name="rbVigenere" Content="Playfair"  Margin="0,0,20,0" />
+                <RadioButton x:Name="rbAES" Content="Substitution"  Margin="0,0,20,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Zone d'affichage -->
+        <Label Grid.Row="3" Content="Chaîne chiffrée:" Width="auto" Height="auto"/>
+        <Label Grid.Row="4" Width="auto" Height="20" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1"/>
     </Grid>
 </Window>

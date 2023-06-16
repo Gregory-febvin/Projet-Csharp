@@ -24,5 +24,10 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void rbCesar_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
