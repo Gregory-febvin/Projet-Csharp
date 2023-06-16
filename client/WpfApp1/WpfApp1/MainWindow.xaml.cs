@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
+using System.Net.Sockets;
 
 namespace WpfApp1
 {
@@ -20,14 +22,26 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void rbCesar_Checked(object sender, RoutedEventArgs e)
+        private void ConnectSocket(string ip, int port)
         {
-
+            try
+            {
+                client.Connect(ip, port);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
+
+        
     }
 }

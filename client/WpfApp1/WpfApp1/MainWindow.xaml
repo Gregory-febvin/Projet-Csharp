@@ -22,7 +22,7 @@
         <!-- GroupBox avec les radio-boutons -->
         <GroupBox Grid.Row="2" Header="Méthode de chiffrement" Margin="5">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
-                <RadioButton x:Name="rbCesar" Content="César" IsChecked="True" Margin="0,0,20,0" />
+                <RadioButton x:Name="rbCesar" Content="César"  Margin="0,0,20,0" />
                 <RadioButton x:Name="rbVigenere" Content="Playfair"  Margin="0,0,20,0" />
                 <RadioButton x:Name="rbAES" Content="Substitution"  Margin="0,0,20,0"/>
             </StackPanel>
