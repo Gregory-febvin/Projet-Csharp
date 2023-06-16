@@ -31,17 +31,19 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+        //pour se connecter au serveur
         private void ConnectSocket(string ip, int port)
         {
             try
             {
                 client.Connect(ip, port);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)   //en cas d'erreur de connection
             {
                 Console.WriteLine(ex.Message);
             }
         }
-
+        //pour envoyer quelle que chose au serveur
         private void SendSocket(string Mes)
         {
             if (client.Connected)
@@ -51,27 +53,38 @@ namespace WpfApp1
                 client.Send(b_Mes);
             }
         }
+
+        //quand le client reçois quelle que chose du serveur
         private void ResevMessSocket()
         {
-            if(client.Connected) { 
-            byte[] receiveBuffer = new byte[4096];
-            int bytesRead = client.Receive(receiveBuffer);
-            string receivedMessage = Encoding.UTF8.GetString(receiveBuffer, 0, bytesRead);
-            LabelMessCrypte.Content= receivedMessage;
+            if (client.Connected)
+            {
+                byte[] receiveBuffer = new byte[4096];
+                int bytesRead = client.Receive(receiveBuffer); //récupération des donné
+                string receivedMessage = Encoding.UTF8.GetString(receiveBuffer, 0, bytesRead); //conversion des donné en string
+                LabelMessCrypte.Content = receivedMessage;
 
+                //si la réponse du serveur est != vide on active pas le bouton copy
+                if(receivedMessage != null)
                 
+                    Button_copy.IsEnabled= true;
+                else
+                    Button_copy.IsEnabled= false;
+
+
             }
         }
 
+        //quand l'utilisateur appui sur le bouton de fermeture 
         private void App_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (client.Connected)
-            {  
+            if (client.Connected) //detect si le client est connecter au serveur
+            {
                 //déconection du socket a la fermeur de l'application
                 client.Shutdown(SocketShutdown.Both);
                 client.Close();
             }
-               
+
         }
 
         private void txtInputString_KeyDown(object sender, KeyEventArgs e)
@@ -86,7 +99,7 @@ namespace WpfApp1
                     // Appeler le service de chiffrement en fonction du radio-bouton sélectionné
                     if (CheckCesar.IsChecked == true)
                     {
-                        ChaineAScrypte = "C|"+ChaineAScrypte;
+                        ChaineAScrypte = "C|" + ChaineAScrypte;
                     }
                     else if (CheckVigenere.IsChecked == true)
                     {
@@ -96,19 +109,30 @@ namespace WpfApp1
                     {
                         ChaineAScrypte = "S|" + ChaineAScrypte;
                     }
-                    ConnectSocket("172.18.1.62",6666);
+                    //ConnectSocket("172.18.1.62",6666);
+                    ConnectSocket("127.0.0.1", 6666);
                     SendSocket(ChaineAScrypte);
                     ResevMessSocket();
-                    
-
-
                 }
-                else{
-                
+                else
+                {
+
                     // Afficher un message d'erreur si la chaîne ne contient pas que des lettres majuscules
-                    MessageBox.Show("La chaîne doit être composée uniquement de lettres majuscules.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("La chaîne doit être composée uniquement de lettres.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
+        }
+
+        //losque que l'utilisateur clique sur le bouton copie pour copier la chaîne Crypté
+        private async void Click_Copy(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(LabelMessCrypte.Content.ToString());
+            Button_copy.Content = "Copié !";
+            Button_copy.FontWeight= FontWeights.Bold;
+            await Task.Delay(2000); //ajout d'un délai de 2 seconde
+            Button_copy.Content = "Copie";
+            Button_copy.FontWeight = FontWeights.Normal;
 
         }
     }

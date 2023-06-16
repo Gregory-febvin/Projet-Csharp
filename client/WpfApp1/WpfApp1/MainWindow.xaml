@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-           Title="PromeoCrypto" Height="220" Width="400" Background="LightGray" Closing="App_Closing">
+           Title="PromeoCrypto" Height="300" Width="400" Background="LightGray" Closing="App_Closing">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Zone d'édition -->
         <Label Grid.Row="0" Content="Saisir la chaîne à chiffrer:"/>
-        <TextBox Grid.Row="1" Name="txtInput"  Margin="5" KeyDown="txtInputString_KeyDown"/>
+        <TextBox Grid.Row="1" Name="txtInput" Height="30"  Margin="5" KeyDown="txtInputString_KeyDown" VerticalContentAlignment="Center"/>
 
         <!-- GroupBox avec les radio-boutons -->
         <GroupBox Grid.Row="2" Header="Méthode de chiffrement" Margin="5">
@@ -30,6 +31,7 @@
 
         <!-- Zone d'affichage -->
         <Label Grid.Row="3" Content="Chaîne chiffrée:" Width="auto" Height="auto"/>
-        <Label x:Name="LabelMessCrypte" Grid.Row="4"  Width="auto" Height="30" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" FontSize="9" FontStretch="Medium" FontWeight="Medium"/>
+        <Label Name="LabelMessCrypte" Grid.Row="4" Height="30" Background="White" Margin="5,0,5,10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" FontSize="12" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Button Content="Copie" Name="Button_copy" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="5" VerticalAlignment="Top" Click="Click_Copy" Width="76" IsEnabled="False"/>
     </Grid>
 </Window>
