@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-           Title="PromeoCrypto" Height="220" Width="400" Background="LightGray">
+           Title="PromeoCrypto" Height="220" Width="400" Background="LightGray" Closing="App_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,6 +30,6 @@
 
         <!-- Zone d'affichage -->
         <Label Grid.Row="3" Content="Chaîne chiffrée:" Width="auto" Height="auto"/>
-        <Label x:Name="LabelMessCrypte" Grid.Row="4"  Width="auto" Height="20" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1"/>
+        <Label x:Name="LabelMessCrypte" Grid.Row="4"  Width="auto" Height="30" Background="White" Margin="5,0,5,112" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" FontSize="9" FontStretch="Medium" FontWeight="Medium"/>
     </Grid>
 </Window>

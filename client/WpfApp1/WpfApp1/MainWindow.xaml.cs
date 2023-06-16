@@ -44,16 +44,34 @@ namespace WpfApp1
 
         private void SendSocket(string Mes)
         {
-            byte[] b_Mes = new byte[4096];
-            b_Mes = Encoding.UTF8.GetBytes(Mes);
-            client.Send(b_Mes);
+            if (client.Connected)
+            {
+                byte[] b_Mes = new byte[4096];
+                b_Mes = Encoding.UTF8.GetBytes(Mes);
+                client.Send(b_Mes);
+            }
         }
         private void ResevMessSocket()
         {
+            if(client.Connected) { 
             byte[] receiveBuffer = new byte[4096];
             int bytesRead = client.Receive(receiveBuffer);
             string receivedMessage = Encoding.UTF8.GetString(receiveBuffer, 0, bytesRead);
             LabelMessCrypte.Content= receivedMessage;
+
+                
+            }
+        }
+
+        private void App_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (client.Connected)
+            {  
+                //déconection du socket a la fermeur de l'application
+                client.Shutdown(SocketShutdown.Both);
+                client.Close();
+            }
+               
         }
 
         private void txtInputString_KeyDown(object sender, KeyEventArgs e)
@@ -80,8 +98,10 @@ namespace WpfApp1
                     }
                     ConnectSocket("172.18.1.62",6666);
                     SendSocket(ChaineAScrypte);
-
+                    ResevMessSocket();
                     
+
+
                 }
                 else{
                 
