@@ -25,6 +25,8 @@ namespace WpfApp1
     {
 
         private Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private string ip = "172.0.0.1"; //ip du serveur socket
+        private int port = 6666; //Port d'écoute serveur socket
 
         public MainWindow()
         {
@@ -109,8 +111,7 @@ namespace WpfApp1
                     {
                         ChaineAScrypte = "S|" + ChaineAScrypte;
                     }
-                    //ConnectSocket("172.18.1.62",6666);
-                    ConnectSocket("127.0.0.1", 6666);
+                    ConnectSocket(ip, port);
                     SendSocket(ChaineAScrypte);
                     ResevMessSocket();
                 }
