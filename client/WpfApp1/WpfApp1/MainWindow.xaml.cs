@@ -42,29 +42,38 @@ namespace WpfApp1
             }
         }
 
+        private void SendSocket(string Mes)
+        {
+            byte[] b_Mes = new byte[4096];
+            b_Mes = Encoding.UTF8.GetBytes(Mes);
+            client.Send(b_Mes);
+        }
+
         private void txtInputString_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                string input = txtInput.Text.ToUpper().Replace(" ", ""); // Convertir en majuscules et supprimer les espaces
+                string ChaineAScrypte = txtInput.Text.ToUpper().Replace(" ", ""); // Convertir en majuscules et supprimer les espaces
 
                 // Vérifier si la chaîne est conforme à l'expression régulière
-                if (Regex.IsMatch(input, @"^[A-Z]+$"))
+                if (Regex.IsMatch(ChaineAScrypte, @"^[A-Z]+$"))
                 {
                     // Appeler le service de chiffrement en fonction du radio-bouton sélectionné
-                    if (rbCesar.IsChecked == true)
+                    if (CheckCesar.IsChecked == true)
                     {
-                        
+                        ChaineAScrypte = "C|"+ChaineAScrypte;
                     }
-                    else if (rbVigenere.IsChecked == true)
+                    else if (CheckVigenere.IsChecked == true)
                     {
-                        
-                        
+                        ChaineAScrypte = "P|" + ChaineAScrypte;
                     }
-                    else if (rbAES.IsChecked == true)
+                    else if (CheckSubsti.IsChecked == true)
                     {
-                        
+                        ChaineAScrypte = "S|" + ChaineAScrypte;
                     }
+                    ConnectSocket("172.18.1.62",8888);
+                    SendSocket(ChaineAScrypte);
+
                 }
                 else{
                 
